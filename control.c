@@ -15,8 +15,6 @@ int main(void){
 	FILE *ptr_fichero;
 	char nombre_fichero[] = "estados.rsp";
 	int resultado = EXITO;
-	char reles[1];
-
 
 	while(1){
 		if ( (ptr_fichero = fopen(nombre_fichero, "r") ) == NULL){
