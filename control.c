@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <wiringPi.h>
+#include <string.h>
 
 enum {EXITO, FALLO};
 
