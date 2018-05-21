@@ -1,4 +1,5 @@
 // gcc control.c -o control
+// gcc -Wall -o control control.c -lwiringPi
 
 #include <stdio.h>
 #include <stdlib.h>
