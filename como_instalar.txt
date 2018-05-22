@@ -1,0 +1,51 @@
+Una vez instalada la imagen de raspbian con/sin escritorio en la raspberry
+ejecutamos los siguientes comandos
+
+> sudo su -
+> sudo apt-get update
+> sudo apt-get upgrade
+
+> sudo apt-get install git-core
+> git clone git://git.drogon.net/wiringPi
+> cd wiringPi
+> git pull origin
+> sudo ./build
+
+Para comprobar la instalacion, ejecutamos
+> gpio -v
+
+debe salirmos algo similar a esto...
+		gpio version: 2.32
+		Copyright (c) 2012-2015 Gordon Henderson
+		This is free software with ABSOLUTELY NO WARRANTY.
+		For details type: gpio -warranty
+
+		Raspberry Pi Details:
+		  Type: Pi Zero, Revision: 03, Memory: 512MB, Maker: Sony
+		  * Device tree is enabled.
+		  * This Raspberry Pi supports user-level GPIO access.
+		    -> See the man-page for more details
+		    -> ie. export WIRINGPI_GPIOMEM=1
+
+Para obtener un detalle de los pines para la configuracion de la GPIO ejecutamos...
+> gpio readall
+
+> sudo apt-get install apache2 -y
+> sudo apt-get install php
+
+Luego nos dirigimos a la carpeta...
+> cd /var/www/html
+> git clone https://github.com/caloloc2/raspirele.git
+> sudo chmod -R 777 raspirele
+> cd raspirele
+> gcc -Wall -o control control.c -lwiringPi
+> sudo ./control
+
+Luego se ejecutara infintamente el programa que controla los reles.
+Para cancelar la ejecucion se presiona Ctrl+C.
+y para volver a correr el programa solo se ejecuta
+> sudo ./control
+
+Para obtener la ip de la raspberry, ejecutamos
+> ifconfig
+y esa ip se debe configurar en la aplicacion android, en su respectivo cuadro de texto.
