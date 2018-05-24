@@ -1,0 +1,31 @@
+PROYECTO RASPBERRY CON RELES CON CONTROL MEDIANTE APLICACION ANDROID
+
+El proyecto basicamente esta realizado con php.
+Existen los archivos
+
+hora.php
+reles.php
+
+Hora.php
+	Este archivo lo que hace es que al recibir la hora que sera enviada desde la aplicacion
+	la guarda en el archivo hora.rsp. Cada vez que se envie se guardara esa hora en ese archivo.
+
+Reles.php
+	De igual manera, el archivo al recibir la informacion de que rele se activa desde la aplicacion
+	lo que hace es guardar esa configuracion en el archivo estados.rsp. 
+	Cada vez que se envie desde la aplicacion este archivo actualizara el valor que tiene el archivo de texto estados.rsp.
+
+La parte de control en la raspberry lo realiza el archivo control.c
+escrito en C.
+
+control.c
+	Este archivo lo que hace es leer lo que contiene los dos archivos tanto hora.rsp como estados.rsp
+	y segun lo que contengan esos archivos procedera a encender o no los reles correspondientes.
+	Este archivo debera ejecutarse infinitamente en la raspberry mediante consola.
+	si existe algun cambio en el codigo se lo debera compilar mediante la siguiente instruccion:
+	----   gcc -Wall -o control control.c -lwiringPi   ----
+	Y se lo ejecutara mediante la siguiente linea:
+	----   sudo ./control    ----
+
+
+Cada linea de codigo esta comentado.
